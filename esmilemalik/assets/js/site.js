@@ -87,6 +87,37 @@
     });
   }
 
+  /* ---- day / night toggle ----
+     Three states: no stored choice follows the system; an explicit choice wins
+     in both directions and persists. */
+  var themeBtn = document.querySelector('[data-theme-toggle]');
+  if (themeBtn) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function effectiveTheme() {
+      var attr = document.documentElement.getAttribute('data-theme');
+      if (attr === 'light' || attr === 'dark') return attr;
+      return mq.matches ? 'dark' : 'light';
+    }
+
+    function syncLabel() {
+      var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      var text = next === 'dark' ? 'Switch to night' : 'Switch to day';
+      themeBtn.setAttribute('aria-label', text);
+      themeBtn.setAttribute('title', text);
+    }
+
+    themeBtn.addEventListener('click', function () {
+      var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      syncLabel();
+    });
+
+    if (mq.addEventListener) mq.addEventListener('change', syncLabel);
+    syncLabel();
+  }
+
   /* ---- footer year ---- */
   var yr = document.querySelector('[data-year]');
   if (yr) yr.textContent = new Date().getFullYear();
