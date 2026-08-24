@@ -1,0 +1,80 @@
+<!--
+title: Contact | {{BRAND}}
+desc: Ask about licensing, commission a piece for your organization, or ask to be told when the first collection is released.
+nav: contact
+slug: contact.html
+-->
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> / <span>Contact</span></p>
+    <h1>Say what you need it for.</h1>
+    <p class="lede">
+      Licensing, an organization commission, or simply asking to hear the first collection when
+      it lands &mdash; all of it starts here.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="grid grid-2" style="align-items:start; gap:clamp(2rem,5vw,3.5rem)">
+      <form class="form" data-mailform="{{EMAIL}}" data-subject="Sound branch enquiry" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input id="c-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="c-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="c-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="c-org">Organization</label>
+            <input id="c-org" name="org" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="c-reason">What brings you here <span class="req" aria-hidden="true">*</span></label>
+            <select id="c-reason" name="reason" required>
+              <option value="">Select one…</option>
+              <option>Licensing enquiry</option>
+              <option>Organization commission</option>
+              <option>Story Into Sound question</option>
+              <option>Tell me when the first collection lands</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-message">Anything worth knowing</label>
+          <textarea id="c-message" name="message"
+            placeholder="Where the sound is going, roughly when you need it, and anything about the moment you want it to create."></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Send <span class="arw" aria-hidden="true">&rarr;</span></button>
+        </div>
+        <p class="hint" data-form-status role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="stack">
+        <dl class="deflist">
+          <div><dt>Email</dt><dd><a class="tlink" href="mailto:{{EMAIL}}">{{EMAIL}}</a></dd></div>
+          <div><dt>Based</dt><dd>Nigeria, working globally</dd></div>
+          <div><dt>Credit</dt><dd>{{ARTIST}} &mdash; AI-assisted production and curation</dd></div>
+        </dl>
+
+        <article class="card">
+          <span class="c-tag">Commissioning a piece?</span>
+          <h3>Start with the brief instead</h3>
+          <p>If you want your own words turned into sound, the Story Into Sound brief asks the right questions and gets you a quote faster.</p>
+          <a class="tlink" href="/story-into-sound.html#brief">Go to the brief <span aria-hidden="true">&rarr;</span></a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
