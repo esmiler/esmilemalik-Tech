@@ -1,4 +1,14 @@
+# This repo shares a folder with your brand assets (CVs, logos, videos, docs).
+# Whitelist approach: ignore everything at the top level, then re-include only
+# the repo's own files. Anything new you drop in this folder stays untracked.
+/*
+!/esmilemalik/
+!/Scammer/
+!/README.md
+!/.gitignore
+
+# inside the tracked directories
 .DS_Store
 __pycache__/
 *.pyc
-sound/tracks/
+/Scammer/tracks/
